@@ -63,14 +63,13 @@ export const ManageSources = React.createClass({
     const {sources} = this.props
     const {pathname} = this.props.location
     const numSources = sources.length
-    const sourcesTitle = `${numSources} ${numSources === 1 ? 'Source' : 'Sources'}`
 
     return (
       <div className="page" id="manage-sources-page">
         <div className="page-header">
           <div className="page-header__container">
             <div className="page-header__left">
-              <h1>InfluxDB Sources</h1>
+              <h1>Configuration</h1>
             </div>
           </div>
         </div>
@@ -81,17 +80,18 @@ export const ManageSources = React.createClass({
 
                 <div className="panel panel-minimal">
                   <div className="panel-heading u-flex u-ai-center u-jc-space-between">
-                    <h2 className="panel-title">{sourcesTitle}</h2>
-                    <Link to={`/sources/${this.props.source.id}/manage-sources/new`} className="btn btn-sm btn-primary">Add New Source</Link>
+                    <h2 className="panel-title">InfluxDB Sources</h2>
+                    <Link to={`/sources/${this.props.source.id}/manage-sources/new`} className="btn btn-sm btn-primary">Add Source</Link>
                   </div>
                   <div className="panel-body">
                     <div className="table-responsive margin-bottom-zero">
                       <table className="table v-center margin-bottom-zero">
                         <thead>
                           <tr>
+                            <th></th>
                             <th>Name</th>
                             <th>Host</th>
-                            <th>Kapacitor</th>
+                            <th style={{width: "162px"}}>Kapacitor</th>
                             <th className="text-right"></th>
                           </tr>
                         </thead>
@@ -101,18 +101,60 @@ export const ManageSources = React.createClass({
                               const kapacitorName = kapacitors[source.id] ? kapacitors[source.id].name : ''
                               return (
                                 <tr key={source.id}>
-                                  <td>{source.name}{source.default ? <span className="default-source-label">Default</span> : null}</td>
+                                  <td className="dummy-checker-cell">
+                                    <div className="dummy-checker"></div>
+                                  </td>
+                                  <td>
+                                    <Link to={`${pathname}/${source.id}/edit`}>{source.name}</Link>
+                                    &nbsp;{source.default ? <span className="default-source-label">Default</span> : null}
+                                  </td>
                                   <td className="monotype">{source.url}</td>
-                                  <td>{kapacitorName ? kapacitorName : "--"}</td>
+                                  <td style={{width: "162px"}}>{kapacitorName ? kapacitorName : "--"}</td>
                                   <td className="text-right">
-                                    <Link className="btn btn-info btn-xs" to={`${pathname}/${source.id}/edit`}><span className="icon pencil"></span></Link>
-                                    <Link className="btn btn-success btn-xs" to={`/sources/${source.id}/hosts`}>Connect</Link>
-                                    <button className="btn btn-danger btn-xs" onClick={() => this.handleDeleteSource(source)}><span className="icon trash"></span></button>
+                                    <button className="btn btn-danger btn-xs hide-btn" onClick={() => this.handleDeleteSource(source)}><span className="icon trash"></span></button>
                                   </td>
                                 </tr>
                               )
                             })
                           }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-12">
+
+                <div className="panel panel-minimal">
+                  <div className="panel-heading u-flex u-ai-center u-jc-space-between">
+                    <h2 className="panel-title">Kapacitor Nodes</h2>
+                    <Link to={`/sources/${this.props.source.id}/manage-sources/new`} className="btn btn-sm btn-success">Add Node</Link>
+                  </div>
+                  <div className="panel-body">
+                    <div className="table-responsive margin-bottom-zero">
+                      <table className="table v-center margin-bottom-zero">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>URL</th>
+                            <th>Configured Endpoints</th>
+                            <th className="text-right"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <a href="#" className="link-success">DarknessEternal</a>
+                            </td>
+                            <td className="monotype">http://chronograf.influxcloud.net:9092</td>
+                            <td>SMTP, Slack, Alerta</td>
+                            <td className="text-right">
+                              <button className="btn btn-danger btn-xs hide-btn"><span className="icon trash"></span></button>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

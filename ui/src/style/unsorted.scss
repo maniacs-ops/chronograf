@@ -90,3 +90,42 @@
     margin-bottom: 11px;
   }
 }
+
+
+.dummy-checker-cell {
+  width: 24px;
+  padding-right: 0 !important;
+}
+
+.dummy-checker {
+  width: 16px;
+  height: 16px;
+  background-color: $g2-kevlar;
+  border-radius: 9px;
+  position: relative;
+  display: inline-block;
+}
+tr.bogglez .dummy-checker:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 8px;
+  height: 8px;
+  background-color: $c-pool;
+}
+
+.hide-btn {
+  visibility: hidden !important;
+}
+tr.bogglez {
+  background-color: $g5-pepper;
+}
+tr:hover .hide-btn {
+  visibility: visible !important;
+}
+tr.bogglez a {
+  color: $g20-white !important;
+}

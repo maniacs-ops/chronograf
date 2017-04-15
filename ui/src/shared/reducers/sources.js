@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 export default function sources(state = [], action) {
   switch (action.type) {
     case 'LOAD_SOURCES': {
@@ -20,6 +22,14 @@ export default function sources(state = [], action) {
         s.default = false; return s
       }) : state
       return [...updatedSources, source]
+    }
+
+    case 'LOAD_KAPACITORS': {
+      const {source, kapacitors} = action.payload
+      const sourceIndex = state.findIndex((s) => s.id === source.id)
+      const updatedSources = _.cloneDeep(state)
+      updatedSources[sourceIndex].kapacitors = kapacitors
+      return updatedSources
     }
   }
 

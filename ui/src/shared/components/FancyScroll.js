@@ -15,13 +15,6 @@ const FancyScroll = React.createClass({
     children: node.isRequired,
   },
 
-  getDefaultProps() {
-    return {
-      isKapacitorTheme: false,
-      scrollBoxClass: 'fancy-scroll-container',
-    }
-  },
-
   render() {
     const {isKapacitorTheme, scrollBoxClass, children} = this.props
 
@@ -41,5 +34,10 @@ const FancyScroll = React.createClass({
     )
   },
 })
+
+FancyScroll.defaultProps = {
+  isKapacitorTheme: false,
+  scrollBoxClass: 'fancy-scroll-container',
+}
 
 export default FancyScroll

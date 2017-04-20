@@ -1,0 +1,52 @@
+/*
+    Fancy Scrollbars
+    ----------------------------------------------
+*/
+
+/* Size Controls */
+$fancy-scroll--gap: 4px;
+$fancy-scroll--size: 6px;
+
+/* Regular Theme */
+$fancy-scroll--color-a: $c-pool;
+$fancy-scroll--color-b: $c-comet;
+
+/* Kapacitor Theme */
+$fancy-scroll--color-c: $c-rainforest;
+$fancy-scroll--color-d: $c-pool;
+
+
+.fancy-track-vertical {
+  right: $fancy-scroll--gap;
+  top: $fancy-scroll--gap;
+  width: $fancy-scroll--size;
+  height: calc(100% - #{$fancy-scroll--gap * 2}));
+}
+.fancy-thumb-vertical {
+  width: $fancy-scroll--size;
+  border-radius: ($fancy-scroll--size / 2);
+  background-color: $fancy-scroll--color-a;
+  @include gradient-v($fancy-scroll--color-a,$fancy-scroll--color-b);
+}
+.fancy-track-horizontal {
+  left: $fancy-scroll--gap;
+  bottom: $fancy-scroll--gap;
+  width: calc(100% - #{$fancy-scroll--gap * 2}));
+  height: $fancy-scroll--size;
+}
+.fancy-thumb-horizontal {
+  height: $fancy-scroll--size;
+  border-radius: ($fancy-scroll--size / 2);
+  background-color: $fancy-scroll--color-a;
+  @include gradient-h($fancy-scroll--color-a,$fancy-scroll--color-b);
+}
+
+/* Kapacitor Themed Scrollbars */
+.fancy-kapacitor {
+  &.fancy-thumb-vertical {
+    @include gradient-v($fancy-scroll--color-c,$fancy-scroll--color-d);
+  }
+  &.fancy-thumb-horizontal {
+    @include gradient-h($fancy-scroll--color-c,$fancy-scroll--color-d);
+  }
+}

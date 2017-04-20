@@ -180,6 +180,7 @@ class DashboardPage extends Component {
         {selectedCell
           ? <CellEditorOverlay
               source={source}
+              templates={dashboard.templates}
               cell={selectedCell}
               timeRange={timeRange}
               autoRefresh={autoRefresh}
@@ -276,12 +277,18 @@ DashboardPage.propTypes = {
         shape({
           type: string.isRequired,
           label: string.isRequired,
-          code: string.isRequired,
+          tempVar: string.isRequired,
           query: shape({
             db: string.isRequired,
             text: string.isRequired,
           }),
-          values: arrayOf(string.isRequired),
+          values: arrayOf(
+            shape({
+              value: string.isRequired,
+              selected: bool.isRequired,
+              type: string.isRequired,
+            })
+          ),
         })
       ),
     })

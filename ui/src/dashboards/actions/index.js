@@ -125,22 +125,31 @@ export const editTemplate = (dashboardID, templateID, updates) => ({
 const templates = [
   {
     id: 1,
-    type: 'measurement',
+    type: 'tagKeys',
     label: 'test query',
-    code: '$HOSTS',
+    tempVar: '$HOSTS',
     query: {
       db: 'db1',
       measurement: 'm1',
       text: 'SHOW TAGS WHERE HUNTER = "coo"',
     },
-    values: ['h1', 'h2', 'h3'],
+    values: [
+      {value: 'h1', type: 'tagKeys', selected: false},
+      {value: 'h2', type: 'tagKeys', selected: false},
+      {value: 'h3', type: 'tagKeys', selected: false},
+      {value: 'h4', type: 'tagKeys', selected: false},
+    ],
   },
   {
     id: 2,
     type: 'csv',
     label: 'test csv',
-    code: '$INFLX',
-    values: ['A', 'B', 'C'],
+    tempVar: '$INFLX',
+    values: [
+      {value: 'A', type: 'csv', selected: false},
+      {value: 'B', type: 'csv', selected: false},
+      {value: 'C', type: 'csv', selected: false},
+    ],
   },
 ]
 

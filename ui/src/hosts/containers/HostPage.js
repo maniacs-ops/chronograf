@@ -10,6 +10,7 @@ import DashboardHeader from 'src/dashboards/components/DashboardHeader'
 import timeRanges from 'hson!../../shared/data/timeRanges.hson'
 import {getMappings, getAppsForHosts, getMeasurementsForHost, getAllHosts} from 'src/hosts/apis'
 import {fetchLayouts} from 'shared/apis'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 import {setAutoRefresh} from 'shared/actions/app'
 import {presentationButtonDispatcher} from 'shared/dispatchers'
@@ -186,14 +187,11 @@ export const HostPage = React.createClass({
             )
           })}
         </DashboardHeader>
-        <div className={classnames({
-          'page-contents': true,
-          'presentation-mode': inPresentationMode,
-        })}>
+        <FancyScroll scrollBoxClass={classnames({'page-contents': true, 'presentation-mode': inPresentationMode})}>
           <div className="container-fluid full-width dashboard">
             { (layouts.length > 0) ? this.renderLayouts(layouts) : '' }
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   },

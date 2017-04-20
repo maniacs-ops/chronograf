@@ -3,6 +3,7 @@ import _ from 'lodash'
 import HostsTable from '../components/HostsTable'
 import SourceIndicator from '../../shared/components/SourceIndicator'
 import {getCpuAndLoadForHosts, getMappings, getAppsForHosts} from '../apis'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 export const HostsPage = React.createClass({
   propTypes: {
@@ -82,7 +83,7 @@ export const HostsPage = React.createClass({
             </div>
           </div>
         </div>
-        <div className="page-contents">
+        <FancyScroll scrollBoxClass="page-contents">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">
@@ -95,7 +96,7 @@ export const HostsPage = React.createClass({
               </div>
             </div>
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   },

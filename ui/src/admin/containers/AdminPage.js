@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import FancyScroll from 'src/shared/components/FancyScroll'
+
 import {
   loadUsersAsync,
   loadRolesAsync,
@@ -163,7 +165,7 @@ class AdminPage extends Component {
             </div>
           </div>
         </div>
-        <div className="page-contents">
+        <FancyScroll scrollBoxClass="page-contents">
           <div className="container-fluid">
             <div className="row">
                 {
@@ -197,7 +199,7 @@ class AdminPage extends Component {
                 }
             </div>
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   }

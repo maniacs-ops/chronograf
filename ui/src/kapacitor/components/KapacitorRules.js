@@ -4,6 +4,7 @@ import {Link} from 'react-router'
 import NoKapacitorError from '../../shared/components/NoKapacitorError'
 import SourceIndicator from '../../shared/components/SourceIndicator'
 import KapacitorRulesTable from 'src/kapacitor/components/KapacitorRulesTable'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const KapacitorRules = ({
   source,
@@ -33,7 +34,7 @@ const KapacitorRules = ({
     <PageContents source={source} >
       <div className="panel-heading u-flex u-ai-center u-jc-space-between">
         <h2 className="panel-title">Alert Rules</h2>
-        <Link to={`/sources/${source.id}/alert-rules/new`} className="btn btn-sm btn-primary">Create Rule</Link>
+        <Link to={`/sources/${source.id}/alert-rules/new`} className="btn btn-sm btn-success">Create Rule</Link>
       </div>
       <KapacitorRulesTable
         source={source}
@@ -57,7 +58,7 @@ const PageContents = ({children, source}) => (
         </div>
       </div>
     </div>
-    <div className="page-contents">
+    <FancyScroll scrollBoxClass="page-contents" isKapacitorTheme={true}>
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-12">
@@ -67,7 +68,7 @@ const PageContents = ({children, source}) => (
           </div>
         </div>
       </div>
-    </div>
+    </FancyScroll>
   </div>
 )
 

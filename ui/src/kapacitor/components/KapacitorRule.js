@@ -7,6 +7,7 @@ import RuleMessage from 'src/kapacitor/components/RuleMessage'
 import {createRule, editRule} from 'src/kapacitor/apis'
 import buildInfluxQLQuery from 'utils/influxql'
 import timeRanges from 'hson!../../shared/data/timeRanges.hson'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 export const KapacitorRule = React.createClass({
   propTypes: {
@@ -49,7 +50,7 @@ export const KapacitorRule = React.createClass({
           timeRange={timeRange}
           source={source}
         />
-        <div className="page-contents page-contents--green-scrollbar">
+        <FancyScroll scrollBoxClass="page-contents" isKapacitorTheme={true}>
           <div className="container-fluid">
             <div className="row">
               <div className="col-xs-12">
@@ -67,7 +68,7 @@ export const KapacitorRule = React.createClass({
               </div>
             </div>
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   },

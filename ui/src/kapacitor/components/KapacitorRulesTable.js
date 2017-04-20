@@ -30,7 +30,7 @@ const KapacitorRulesTable = ({source, rules, onDelete, onChangeRuleStatus}) => {
 const RuleRow = ({rule, source, onDelete, onChangeRuleStatus}) => {
   return (
     <tr key={rule.id}>
-      <td className="monotype"><Link to={`/sources/${source.id}/alert-rules/${rule.id}`}>{rule.name}</Link></td>
+      <td className="monotype"><Link className="link-success" to={`/sources/${source.id}/alert-rules/${rule.id}`}>{rule.name}</Link></td>
       <td className="monotype">{rule.trigger}</td>
       <td className="monotype">{rule.message}</td>
       <td className="monotype">{rule.alerts.join(', ')}</td>

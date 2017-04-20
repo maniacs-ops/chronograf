@@ -3,6 +3,7 @@ import SourceIndicator from '../../shared/components/SourceIndicator'
 import AlertsTable from '../components/AlertsTable'
 import NoKapacitorError from '../../shared/components/NoKapacitorError'
 import CustomTimeRange from '../../shared/components/CustomTimeRange'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 import {getAlerts} from '../apis'
 import AJAX from 'utils/ajax'
@@ -141,7 +142,7 @@ class AlertsApp extends Component {
             </div>
           </div>
         </div>
-        <div className="page-contents">
+        <FancyScroll scrollBoxClass="page-contents">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">
@@ -149,7 +150,7 @@ class AlertsApp extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   }

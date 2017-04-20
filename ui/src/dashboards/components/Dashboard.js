@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import classnames from 'classnames'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 import LayoutRenderer from 'shared/components/LayoutRenderer'
 
@@ -38,7 +39,7 @@ const Dashboard = ({
   })
 
   return (
-    <div className={classnames({'page-contents': true, 'presentation-mode': inPresentationMode})}>
+    <FancyScroll scrollBoxClass={classnames({'page-contents': true, 'presentation-mode': inPresentationMode})}>
       {cells.length ?
         <div className={classnames('container-fluid full-width dashboard', {'dashboard-edit': isEditMode})}>
           <LayoutRenderer
@@ -64,7 +65,7 @@ const Dashboard = ({
           </button>
         </div>
       }
-    </div>
+    </FancyScroll>
   )
 }
 

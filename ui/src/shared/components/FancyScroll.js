@@ -4,17 +4,26 @@ import classNames from 'classnames'
 
 const {
   bool,
-  string
+  node,
+  string,
 } = PropTypes
 
 const FancyScroll = React.createClass({
   propTypes: {
     isKapacitorTheme: bool,
     scrollBoxClass: string,
+    children: node.isRequired,
+  },
+
+  getDefaultProps() {
+    return {
+      isKapacitorTheme: false,
+      scrollBoxClass: 'fancy-scroll-container',
+    }
   },
 
   render() {
-    const {scrollBoxClass, isKapacitorTheme} = this.props
+    const {isKapacitorTheme, scrollBoxClass, children} = this.props
 
     return (
       <Scrollbars
@@ -27,10 +36,10 @@ const FancyScroll = React.createClass({
         renderThumbHorizontal={props => <div {...props} className={classNames("fancy-thumb-horizontal", {"fancy-kapacitor": isKapacitorTheme})}/>}
         className={scrollBoxClass}
       >
-        {this.props.children}
+        {children}
       </Scrollbars>
     )
   },
-}
+})
 
 export default FancyScroll

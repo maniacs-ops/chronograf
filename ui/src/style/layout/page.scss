@@ -18,23 +18,13 @@
   overflow: hidden;
 }
 .page-contents {
-  position: absolute;
+  position: absolute !important;
   top: $chronograf-page-header-height;
   left: 0;
   width: 100%;
-  height: calc(100% - #{$chronograf-page-header-height});
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  @include custom-scrollbar($g2-kevlar,$c-pool);
+  height: calc(100% - #{$chronograf-page-header-height}) !important;
+  overflow: hidden;
   @include gradient-v($g2-kevlar,$g0-obsidian);
-
-  &--green-scrollbar {
-    @include custom-scrollbar($g2-kevlar,$c-rainforest);
-  }
-  &--purple-scrollbar {
-    @include custom-scrollbar($g2-kevlar,$c-comet);
-  }
 
   &.presentation-mode {
     top: 0;

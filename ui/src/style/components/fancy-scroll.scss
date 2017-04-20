@@ -20,7 +20,7 @@ $fancy-scroll--color-d: $c-pool;
   right: $fancy-scroll--gap;
   top: $fancy-scroll--gap;
   width: $fancy-scroll--size;
-  height: calc(100% - #{$fancy-scroll--gap * 2}));
+  height: calc(100% - #{$fancy-scroll--gap * 2});
 }
 .fancy-thumb-vertical {
   width: $fancy-scroll--size;
@@ -31,7 +31,7 @@ $fancy-scroll--color-d: $c-pool;
 .fancy-track-horizontal {
   left: $fancy-scroll--gap;
   bottom: $fancy-scroll--gap;
-  width: calc(100% - #{$fancy-scroll--gap * 2}));
+  width: calc(100% - #{$fancy-scroll--gap * 2});
   height: $fancy-scroll--size;
 }
 .fancy-thumb-horizontal {
